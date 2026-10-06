@@ -29,7 +29,7 @@ class BookRepository:
     def get_by_id(self, book_id):
         with get_connection() as conn:
             row = conn.execute(
-                "SELECT id, title, author, year, is_read FROM books WHERE id = ?", (book_id),
+                "SELECT id, title, author, year, is_read FROM books WHERE id = ?", (book_id,),
             ).fetchone()
             return dict(row) if row else None
 
