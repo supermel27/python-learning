@@ -27,7 +27,7 @@ def get_book(book_id: int):
 
 
 @app.post("/books", response_model=Book, status_code=201)
-def creaye_book(data: BookCreate):
+def create_book(data: BookCreate):
     new_id = repo.add(data.title, data.author, data.year)
     return repo.get_by_id(new_id)
 
